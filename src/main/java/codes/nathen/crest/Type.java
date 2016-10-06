@@ -1,4 +1,4 @@
-package codes.nathen.crest;
+package codes.nathen.Crest;
 
 
 import java.util.HashMap;

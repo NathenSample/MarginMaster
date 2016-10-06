@@ -18,7 +18,7 @@ public class PriceGetterImpl implements PriceGetter{
     private int itemId;
     private int regionId;
     private int stationId;
-    private String crestString = "https://crest-tq.eveonline.com/market/%s/orders/%s/?type=https://crest-tq.eveonline.com/inventory/types/%s/";
+    private String crestString = "https://Crest-tq.eveonline.com/market/%s/orders/%s/?type=https://Crest-tq.eveonline.com/inventory/types/%s/";
 
     public PriceGetterImpl(int itemId, int regionId, int stationId){
         this.itemId = itemId;
