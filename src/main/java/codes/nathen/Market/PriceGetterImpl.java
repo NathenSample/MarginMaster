@@ -47,6 +47,7 @@ public class PriceGetterImpl implements PriceGetter{
     }
 
     //Returning -1 signifies a exception(Which will be logged), or that no pricing information could be found(also logged)
+    //TODO: Hoooly shit, refactor this method
     private double getPriceFromCrest(String crestUrlAsString, String mode){
         double price = -1;
         try {
