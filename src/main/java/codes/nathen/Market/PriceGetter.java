@@ -4,11 +4,11 @@ package codes.nathen.Market;
  * Created by nsample on 06/10/2016.
  */
 public interface PriceGetter {
-    int getItemId();
+    long getItemId();
 
-    int getRegionId();
+    long getRegionId();
 
-    double getSellPrice();
+    double getBuyPriceFromCrest();
 
-    double getBuyPrice();
+    double getSellPriceFromCrest();
 }
