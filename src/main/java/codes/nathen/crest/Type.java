@@ -17,7 +17,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
         "id_str",
         "href",
         "id",
-        "name"
+        "name",
+        "icon"
 })
 public class Type {
 
@@ -29,6 +30,8 @@ public class Type {
     private Long id;
     @JsonProperty("name")
     private String name;
+    @JsonProperty("icon")
+    private Icon icon;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -112,6 +115,25 @@ public class Type {
         this.name = name;
     }
 
+    /**
+     *
+     * @return
+     * The icon
+     */
+    @JsonProperty("icon")
+    public Icon getIcon() {
+        return icon;
+    }
+
+    /**
+     *
+     * @param icon
+     * The icon
+     */
+    @JsonProperty("icon")
+    public void setIcon(Icon icon) {
+        this.icon = icon;
+    }
     @JsonAnyGetter
     public Map<String, Object> getAdditionalProperties() {
         return this.additionalProperties;
