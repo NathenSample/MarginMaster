@@ -50,6 +50,7 @@ public class PriceGetterImpl implements PriceGetter{
     private double getPriceFromCrest(String crestUrlAsString, String mode){
         double price = -1;
         try {
+            double best = -1;
             String jsonResponseAsString = IOUtils.toString(new URL(crestUrlAsString), "UTF-8");
             ObjectMapper mapper = new ObjectMapper();
             ArrayList orders = (ArrayList) mapper.readValue(jsonResponseAsString, Map.class).get("items");
@@ -57,9 +58,16 @@ public class PriceGetterImpl implements PriceGetter{
                 LinkedHashMap current = (LinkedHashMap) order;
                 LinkedHashMap locationEndpoint = (LinkedHashMap) current.get("location");
                 long locationId = Long.parseLong((String) locationEndpoint.get("id_str"));
+                if(locationId != stationId) continue;
                 double currentPrice = (Double) current.get("price");
-                if(currentPrice > price) price = currentPrice;
+                if(best == -1) best = currentPrice;
+                if(mode.equals("buy")) {
+                    if (currentPrice > best) best = currentPrice;
+                }else {
+                    if(currentPrice < best) best = currentPrice;
+                }
             }
+            price = best;
         } catch (Exception e) {
             LOGGER.error("Exception on getPriceFromCrest - REGION_ID:" + regionId + " itemId:" + itemId);
             e.printStackTrace();
