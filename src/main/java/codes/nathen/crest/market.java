@@ -28,11 +28,11 @@ public class Market {
     @JsonProperty("items")
     private List<Item> items = new ArrayList<Item>();
     @JsonProperty("pageCount")
-    private Integer pageCount;
+    private Long pageCount;
     @JsonProperty("pageCount_str")
     private String pageCountStr;
     @JsonProperty("totalCount")
-    private Integer totalCount;
+    private Long totalCount;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -82,7 +82,7 @@ public class Market {
      * The pageCount
      */
     @JsonProperty("pageCount")
-    public Integer getPageCount() {
+    public Long getPageCount() {
         return pageCount;
     }
 
@@ -92,7 +92,7 @@ public class Market {
      * The pageCount
      */
     @JsonProperty("pageCount")
-    public void setPageCount(Integer pageCount) {
+    public void setPageCount(Long pageCount) {
         this.pageCount = pageCount;
     }
 
@@ -122,7 +122,7 @@ public class Market {
      * The totalCount
      */
     @JsonProperty("totalCount")
-    public Integer getTotalCount() {
+    public Long getTotalCount() {
         return totalCount;
     }
 
@@ -132,7 +132,7 @@ public class Market {
      * The totalCount
      */
     @JsonProperty("totalCount")
-    public void setTotalCount(Integer totalCount) {
+    public void setTotalCount(Long totalCount) {
         this.totalCount = totalCount;
     }
 

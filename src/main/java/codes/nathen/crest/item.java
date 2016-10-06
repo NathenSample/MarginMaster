@@ -43,11 +43,11 @@ public class Item {
     @JsonProperty("price")
     private Double price;
     @JsonProperty("volumeEntered")
-    private Integer volumeEntered;
+    private Long volumeEntered;
     @JsonProperty("minVolume")
-    private Integer minVolume;
+    private Long minVolume;
     @JsonProperty("volume")
-    private Integer volume;
+    private Long volume;
     @JsonProperty("range")
     private String range;
     @JsonProperty("href")
@@ -57,7 +57,7 @@ public class Item {
     @JsonProperty("location")
     private Location location;
     @JsonProperty("duration")
-    private Integer duration;
+    private Long duration;
     @JsonProperty("minVolume_str")
     private String minVolumeStr;
     @JsonProperty("volumeEntered_str")
@@ -65,7 +65,7 @@ public class Item {
     @JsonProperty("type")
     private Type type;
     @JsonProperty("id")
-    private Integer id;
+    private Long id;
     @JsonProperty("id_str")
     private String idStr;
     @JsonIgnore
@@ -157,7 +157,7 @@ public class Item {
      * The volumeEntered
      */
     @JsonProperty("volumeEntered")
-    public Integer getVolumeEntered() {
+    public Long getVolumeEntered() {
         return volumeEntered;
     }
 
@@ -167,7 +167,7 @@ public class Item {
      * The volumeEntered
      */
     @JsonProperty("volumeEntered")
-    public void setVolumeEntered(Integer volumeEntered) {
+    public void setVolumeEntered(Long volumeEntered) {
         this.volumeEntered = volumeEntered;
     }
 
@@ -177,7 +177,7 @@ public class Item {
      * The minVolume
      */
     @JsonProperty("minVolume")
-    public Integer getMinVolume() {
+    public Long getMinVolume() {
         return minVolume;
     }
 
@@ -187,7 +187,7 @@ public class Item {
      * The minVolume
      */
     @JsonProperty("minVolume")
-    public void setMinVolume(Integer minVolume) {
+    public void setMinVolume(Long minVolume) {
         this.minVolume = minVolume;
     }
 
@@ -197,7 +197,7 @@ public class Item {
      * The volume
      */
     @JsonProperty("volume")
-    public Integer getVolume() {
+    public Long getVolume() {
         return volume;
     }
 
@@ -207,7 +207,7 @@ public class Item {
      * The volume
      */
     @JsonProperty("volume")
-    public void setVolume(Integer volume) {
+    public void setVolume(Long volume) {
         this.volume = volume;
     }
 
@@ -297,7 +297,7 @@ public class Item {
      * The duration
      */
     @JsonProperty("duration")
-    public Integer getDuration() {
+    public Long getDuration() {
         return duration;
     }
 
@@ -307,7 +307,7 @@ public class Item {
      * The duration
      */
     @JsonProperty("duration")
-    public void setDuration(Integer duration) {
+    public void setDuration(Long duration) {
         this.duration = duration;
     }
 
@@ -377,7 +377,7 @@ public class Item {
      * The id
      */
     @JsonProperty("id")
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -387,7 +387,7 @@ public class Item {
      * The id
      */
     @JsonProperty("id")
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

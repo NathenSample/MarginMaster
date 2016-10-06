@@ -26,7 +26,7 @@ public class Type {
     @JsonProperty("href")
     private String href;
     @JsonProperty("id")
-    private Integer id;
+    private Long id;
     @JsonProperty("name")
     private String name;
     @JsonIgnore
@@ -78,7 +78,7 @@ public class Type {
      * The id
      */
     @JsonProperty("id")
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -88,7 +88,7 @@ public class Type {
      * The id
      */
     @JsonProperty("id")
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
