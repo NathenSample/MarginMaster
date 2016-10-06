@@ -1,5 +1,7 @@
 package codes.nathen.Market;
 
+import codes.nathen.Crest.Item;
+import codes.nathen.Crest.Market;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
@@ -47,7 +49,7 @@ public class PriceGetterImpl implements PriceGetter{
     }
 
     //Returning -1 signifies a exception(Which will be logged), or that no pricing information could be found(also logged)
-    //TODO: Hoooly shit, refactor this method
+    //TODO: Still needs work but significant improvement
     private double getPriceFromCrest(String crestUrlAsString, String mode){
         double price = -1;
         try {
@@ -55,12 +57,13 @@ public class PriceGetterImpl implements PriceGetter{
             String jsonResponseAsString = IOUtils.toString(new URL(crestUrlAsString), "UTF-8");
             ObjectMapper mapper = new ObjectMapper();
             ArrayList orders = (ArrayList) mapper.readValue(jsonResponseAsString, Map.class).get("items");
-            for(Object order : orders){
-                LinkedHashMap current = (LinkedHashMap) order;
-                LinkedHashMap locationEndpoint = (LinkedHashMap) current.get("location");
-                long locationId = Long.parseLong((String) locationEndpoint.get("id_str"));
-                if(locationId != stationId) continue;
-                double currentPrice = (Double) current.get("price");
+
+            Market markets = mapper.readValue(jsonResponseAsString, Market.class);
+            ArrayList<Item> orderList = (ArrayList<Item>) markets.getItems();
+
+            for(Item order : orderList){
+                if(order.getLocation().getId() != stationId) continue;
+                double currentPrice = order.getPrice();
                 if(best == -1) best = currentPrice;
                 if(mode.equals("buy")) {
                     if (currentPrice > best) best = currentPrice;
@@ -68,6 +71,7 @@ public class PriceGetterImpl implements PriceGetter{
                     if(currentPrice < best) best = currentPrice;
                 }
             }
+
             price = best;
         } catch (Exception e) {
             LOGGER.error("Exception on getPriceFromCrest - REGION_ID:" + regionId + " itemId:" + itemId);
