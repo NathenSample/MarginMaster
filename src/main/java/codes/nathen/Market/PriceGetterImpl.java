@@ -51,6 +51,7 @@ public class PriceGetterImpl implements PriceGetter{
     }
 
     //Returning -1 signifies a exception(Which will be logged), or that no pricing information could be found(also logged)
+    //TODO: Refactor out repeated logic, it's an improvement on what it used to be but still needs more.
     public double getBuyPriceFromCrest(){
         double price = -1;
 
@@ -66,6 +67,8 @@ public class PriceGetterImpl implements PriceGetter{
         return price;
     }
 
+    //Returning -1 signifies a exception(Which will be logged), or that no pricing information could be found(also logged)
+    //TODO: Refactor out repeated logic, it's an improvement on what it used to be but still needs more.
     public double getSellPriceFromCrest(){
         double price = -1;
         ArrayList<Item> orderList = (ArrayList<Item>) getMarketOrders("sell");
