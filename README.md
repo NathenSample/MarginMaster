@@ -1,5 +1,7 @@
 # MarginMaster
 
-MarginMaster is a W.I.P Tool for the game EvE Online.
+MarginMaster was a small java app which printed profitable margins for EvE online station trading.
 
-It's intended use case is to determine profitable item margin's when station trading.
+I say was, because CREST is dead.
+
+Press F to pay respects.
